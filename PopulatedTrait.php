@@ -8,7 +8,10 @@
  */
 
 namespace common\traits;
-
+/**
+ * Trait PopulatedTrait
+ * @package common\traits
+ */
 trait PopulatedTrait
 {
   private $_related = [];
