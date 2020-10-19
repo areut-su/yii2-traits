@@ -8,6 +8,8 @@
  */
 
 namespace common\traits;
+use Closure;
+
 /**
  * Trait PopulatedTrait
  * @package common\traits
@@ -60,10 +62,10 @@ trait PopulatedTrait
    * return clientqr::findbyaccountidone($this->account_id);
    * });
    * @param string $name
-   * @param \Closure $param
+   * @param Closure $param
    * @return mixed|null
    */
-  protected function getSetPopulated(string $name, \Closure $param)
+  protected function getSetPopulated(string $name, Closure $param)
   {
     $result = $this->getPopulated($name, []);
     if (empty($result)) {
@@ -72,6 +74,5 @@ trait PopulatedTrait
     }
     return $result;
   }
-
 
 }
