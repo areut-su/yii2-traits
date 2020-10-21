@@ -127,9 +127,9 @@ trait MultipleTrait
    * @param array $values
    * @param string $formName
    * @return array
-   * @throws ExceptionValidate
+   * @throws \Exception
    */
-  public static function loadValidateMultiple(array $data, Model $model, array $values = [], $formName = '')
+  public static function loadValidateMultiple(Model $model, array $data, array $values = [], $formName = '')
   {
     $result = [];
     $flag = true;
@@ -141,7 +141,7 @@ trait MultipleTrait
       $result[] = $m;
     }
     if ($flag === false) {
-      throw new ExceptionValidate(ArrayHelper::toArray($result, 'errors'));
+      throw new \Exception(print_r(ArrayHelper::getColumn($result, '_errors'), true), 422);
     }
     return $result;
   }
