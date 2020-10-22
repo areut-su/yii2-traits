@@ -4,6 +4,7 @@ namespace common\traits;
 
 use yii\base\Model;
 use yii\db\ActiveRecord;
+use yii\db\Exception;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -93,7 +94,7 @@ trait MultipleTrait
     (\Exception $e) {
       \Yii::$app->db->transaction->rollBack();
       $message = 'Error save. ' . $e->getCode() . ' ' . $e->getMessage();
-      throw new ErrorSaveException($message);
+      throw new Exception($message, $e->getCode());
     }
 
   }
